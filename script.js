@@ -56,18 +56,7 @@ function noIdont() {
 function maxDate() {
     dataBase.forEach(umaParteDoNome => {
         console.log(umaParteDoNome.idade);
-        /*
-        max = Object.entries(umaParteDoNome.idade).reduce(function (prev, curr) {
-            return prev[1] > curr[1] ? prev : curr;
-        });
-
-        min = Object.entries(umaParteDoNome.idade).reduce(function (prev, curr) {
-            return prev[1] < curr[1] ? prev : curr;
-        });
-        console.log('La propiedad con el mayor valor es', max[0], 'y su valor es', max[1]);
-        console.log('La propiedad con el menor valor es', min[0], 'y su valor es', min[1]);*/
     });
-
 };
 
 
