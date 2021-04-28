@@ -16,7 +16,7 @@ function capture() {
 
     //Nome e idade em variaveis
     let nameCapture = document.getElementById("name").value;
-    let ageCapture = document.getElementById("age").value;
+    let ageCapture = parseInt(document.getElementById("age").value);
 
     //Criação do Objeto
     newPerson = new Person(nameCapture, ageCapture);
@@ -31,6 +31,25 @@ function capture() {
 
 //Criação do Array
 dataBase = [];
+
+//Pessoa Maior Impressão
+function pessoaMaior(dataBase) {
+    ordenarPessoas(dataBase);
+    console.log(`A pessoa com maior idade é ${dataBase[0].nome}`);
+}
+
+//Ordenar Pessoas
+function ordenarPessoas(dataBase) {
+    dataBase.sort((a, b) => {
+        if (a.idade < b.idade) {
+            return 1
+        } else if (a.idade > b.idade) {
+            return -1
+        } else {
+            return 0
+        }
+    });
+}
 
 //Função para colocar dados no Array
 function insertContact() {
@@ -54,9 +73,5 @@ function noIdont() {
 };
 // Recorrer os elementos do objeto
 function maxDate() {
-    dataBase.forEach(umaParteDoNome => {
-        console.log(umaParteDoNome.idade);
-    });
+    pessoaMaior(dataBase);
 };
-
-
