@@ -6,52 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Pratica Toti</title>
 </head>
 
 <body>
-    <h1 id="Titulo">Comparação de Idade</h1>
-    <section class="question" id="question">
-        <label for="#pergunta">Quantas pessoas você vai cadastrar?</label>
-        <select name="pergunta" id="pergunta">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <button id="buttonNumber" type="reset" onclick="numberReg();">Cadastrar</button>
-    </section>
-    <section id="formFirst" class="formFirst">
-        <form>
-            <input id="name" type="text" placeholder="Digite o nome">
-            <input id="age" type="number" placeholder="Digite a idade">
-            <button id="buttonCapture" type="reset" onclick="capture();">Adicionar</button>
-        </form>
-    </section>
-    <section id="newQuestion" class="newQuestion">
-        <label>Quer incluir mais pessoas?</label>
-        <button id="buttonYes" type="reset">Sim</button>
-        <button id="buttonNo" type="reset">Não</button>
-    </section>
-    <section class="answer">
-        <div class="table">
-            <table class="tabla" id="tabla">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Idade</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </section>
-    <script src="script.js"></script>
+    <div class="container">
+        <section class="question" id="question">
+            <h2 id="Titulo">Comparação de Idade</h2>
+            <label for="#pergunta">Quantas pessoas você vai cadastrar?</label>
+            <select name="pergunta" id="pergunta">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <div><button id="buttonNumber" class="buttonNumber" type="reset" onclick="numberReg();">Cadastrar</button>
+            </div>
+        </section>
+        <section id="formFirst" class="formFirst animate__animated animate__backInUp">
+            <h2 id="Titulo">Comparação de Idade</h2>
+            <form>
+                <div>
+                    <label for="name">Nome:</label>
+                    <input id="name" type="text" placeholder="Digite o nome">
+                </div>
+                <div>
+                    <label for="age">Idade:</label>
+                    <input id="age" type="number" placeholder="Digite a idade">
+                </div>
+                <button id="buttonCapture" type="reset" onclick="capture();">Adicionar</button>
+            </form>
+        </section>
+        <section id="newQuestion" class="newQuestion">
+            <label>Quer incluir mais pessoas?</label>
+            <button id="buttonYes" type="reset">Sim</button>
+            <button id="buttonNo" type="reset">Não</button>
+        </section>
+        <section id="answer" class="answer">
+            <h2 id="Titulo">Comparação de Idade</h2>
+            <p id="maiorQueTodos"></p>
+            <div class="table">
+                <table class="tabla" id="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <button id="novoCalculo" type="reset" onclick="novoCalculo();">Fazer uma Nova Comparação</button>
+        </section>
+        <script src="script.js"></script>
+    </div>
+    <footer>
+        <p>Pratica feita por Orlando Martinez para o Programa Full Stack Developer de Toti Diversidade</p>
+    </footer>
 </body>
 
 </html>

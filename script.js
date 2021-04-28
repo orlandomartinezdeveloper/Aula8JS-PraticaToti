@@ -3,8 +3,11 @@ function numberReg() {
     optReg = numbReg.value;
     formOne = document.getElementById("formFirst");
     formOne.style.display = "block";
+    formOne.style.position = "absolute";
+    formOne.setAttribute("class", "question animate__animated animate__backInUp");
     question = document.getElementById("question");
-    question.style.display = "none";
+    question.setAttribute("class", "question animate__animated animate__backOutUp");
+    question.style.position = "absolute";
 };
 
 function capture() {
@@ -24,8 +27,15 @@ function capture() {
     insertContact();
     optReg = optReg - 1;
     if (optReg == 0) {
+        formOne.setAttribute("class", "question animate__animated animate__backOutDown");
+        newQuestion();
+    };
+    // Ligação para a Pergunta se quer adicionar mais pessoas
+    function newQuestion() {
+        newQuestion = document.getElementById("newQuestion");
+        newQuestion.style.display = "block";
+        newQuestion.setAttribute("class", "question animate__animated animate__backInDown");
         formOne.style.display = "none";
-        document.getElementById("newQuestion").style.display = "block";
     };
 };
 
@@ -35,7 +45,7 @@ dataBase = [];
 //Pessoa Maior Impressão
 function pessoaMaior(dataBase) {
     ordenarPessoas(dataBase);
-    console.log(`A pessoa com maior idade é ${dataBase[0].nome}`);
+    document.getElementById('maiorQueTodos').innerHTML = (`A pessoa com maior idade é ${dataBase[0].nome} e tem ${dataBase[0].idade} anos`);
 }
 
 //Ordenar Pessoas
@@ -62,8 +72,11 @@ function insertContact() {
 let buttonYes = document.getElementById("buttonYes");
 buttonYes.addEventListener('click', yesIdo);
 function yesIdo() {
-    document.getElementById("newQuestion").style.display = "none";
+    document.getElementById("newQuestion").style.position = "absolute";
     question.style.display = "block";
+    question.setAttribute("class", "question animate__animated animate__backInDown");
+    newQuestion.setAttribute("class", "question animate__animated animate__backOutDown");
+    newQuestion.style.display = 'none';
 };
 // Botão para terminar o processo
 let buttonNo = document.getElementById("buttonNo").addEventListener("click", noIdont);
@@ -74,4 +87,12 @@ function noIdont() {
 // Recorrer os elementos do objeto
 function maxDate() {
     pessoaMaior(dataBase);
+    document.getElementById('answer').style = "display:flex; flex-direction:column; align-items:center;"
 };
+
+//Voltar de novo para o começo do Programa
+function novoCalculo() {
+    document.getElementById('answer').style.display = "none";
+    question.style.display = "block";
+    question.setAttribute("class", "question animate__animated animate__backInDown");
+}
