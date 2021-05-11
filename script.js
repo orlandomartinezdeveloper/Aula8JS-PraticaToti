@@ -1,3 +1,4 @@
+// Botão para escolher quantas pessoas deseja cadastrar e chamar o seguente formulario
 function numberReg() {
     let numbReg = document.getElementById("pergunta");
     optReg = numbReg.value;
